@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body id="body" style="display: flex;justify-content: center;align-items: center;background-color: #707070;">
+
+
+
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let images = [
+                "wp8363912-fantasy-desktop-4k-wallpapers.jpg",
+                "wp8363929-fantasy-desktop-4k-wallpapers.jpg",
+                "wp8363983-fantasy-desktop-4k-wallpapers.jpg",
+                "wp8363895-fantasy-desktop-4k-wallpapers.jpg",
+            ];
+
+            document.getElementById("body").innerHTML = `<img id="Immagine">`;
+            let imgElement = document.getElementById("Immagine");
+            imgElement.style.transition = "opacity 2s ease-in-out";
+            imgElement.style.opacity = 0;
+            imgElement.style.width = "80%";
+            imgElement.style.height = "70vh";
+            imgElement.style.borderRadius = "20px";
+            imgElement.style.marginTop = "10vh";
+
+            let currentIndex = 0;
+
+            setInterval(function () {
+                imgElement.style.opacity = 0;
+
+                setTimeout(function () {
+                    imgElement.src = images[currentIndex];
+                    imgElement.style.opacity = 1;
+                    currentIndex = (currentIndex + 1) % images.length;
+                }, 2000); // Cambio di immagine ogni 2 secondi
+            }, 4000); // Ogni 4 secondi viene eseguito il cambio di opacità
+        });
+
+    </script>
+</body>
+
+</html>
